@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sistema Anti AFK</title>
+    <script>
+        let NumeroDeClicks = 0;
+        let SegundosAFK = 0;
+
+        function clickmas() {
+            NumeroDeClicks++;
+            console.log("Numero de clicks: " + NumeroDeClicks);
+            document.getElementById("label").innerHTML = "Numero de clicks: " + NumeroDeClicks;
+        }
+
+        function repetirCadaSegundo() {
+            setInterval(actualizar, 1000);
+        }
+
+        function actualizar() {
+            SegundosAFK++;
+            document.getElementById("timelabel").innerHTML = "Segundos AFK: " + SegundosAFK;
+        }
+
+        // Llama a la función repetirCadaSegundo cuando la página carga
+        window.onload = function() {
+            repetirCadaSegundo();
+        };
+    </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1 id="label">Numero de clicks: 0</h1>
+    <h2 id="timelabel">Segundos AFK: 0</h2>
+    <button id="clickbutton" onclick="clickmas()">Click</button>
+</body>
+</html>
